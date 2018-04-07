@@ -16,18 +16,25 @@ function keyHandler(event){
     const keyPressed = event.keyCode;
     emptyPosition = tiles.indexOf(0);
     switch (keyPressed){
+        //Swap empty tile with lower neighbour
         case 40:
             if (emptyPosition / 4 < 3)
                 tiles[emptyPosition] = [tiles[emptyPosition + 4], tiles[emptyPosition + 4] = tiles[emptyPosition]][0];
             break;
+            
+        //Swap empty tile with upper neighbour
         case 38: 
             if (Math.floor(emptyPosition / 4) > 0)
                 tiles[emptyPosition] = [tiles[emptyPosition - 4], tiles[emptyPosition - 4] = tiles[emptyPosition]][0];
             break;
+            
+        //Swap empty tile with left neighbour
         case 37:
             if (emptyPosition % 4 > 0)
                 tiles[emptyPosition - 1] = [tiles[emptyPosition], tiles[emptyPosition] = tiles[emptyPosition - 1]][0];
             break;
+            
+        //Swap empty tile with right neighbour
         case 39:    
             if (emptyPosition % 4 < 3)
                 tiles[emptyPosition + 1] = [tiles[emptyPosition], tiles[emptyPosition] = tiles[emptyPosition + 1]][0];
